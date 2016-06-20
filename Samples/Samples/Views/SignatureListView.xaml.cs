@@ -1,9 +1,9 @@
-﻿using System;
-using Xamarin.Forms;
+﻿using Ninject;
 using Samples.ViewModels;
-using Ninject;
+using Xamarin.Forms;
 
-namespace Samples.Views {
+namespace Samples.Views
+{
 
     public partial class SignatureListView : ContentPage {
 
