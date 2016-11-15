@@ -17,6 +17,7 @@
             HorizontalAlignment="Stretch" 
             Background="Transparent"
             Opacity="1"
+            PointerExited="inkPresenter_OnPointerReleased"
             PointerPressed="inkPresenter_OnPointerPressed"
             PointerMoved="inkPresenter_OnPointerMoved"
             PointerReleased="inkPresenter_OnPointerReleased" 

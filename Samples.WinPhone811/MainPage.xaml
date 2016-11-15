@@ -8,6 +8,13 @@
     mc:Ignorable="d" Background="#FFE4BBBB">
 
     <Grid>
-        <controls:SignaturePad Name="SignaturePad"></controls:SignaturePad>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Image Name="Image"></Image>
+        <controls:SignaturePad Name="SignaturePad" Grid.Row="1" Height="200"></controls:SignaturePad>
+        <Button Content="Done" Grid.Row="2" Grid.RowSpan="6" Click="Button_Click"/>
     </Grid>
 </Page>

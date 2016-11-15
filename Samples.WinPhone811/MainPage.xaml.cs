@@ -1,7 +1,10 @@
-﻿using Windows.UI;
+﻿using Acr.XamForms.SignaturePad;
+using System.IO;
+using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media;
+using Windows.UI.Xaml.Media.Imaging;
 using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=391641
@@ -41,6 +44,28 @@ namespace Samples.WinPhone81
             SignaturePad.Stroke = new SolidColorBrush(Colors.Black);
             SignaturePad.VerticalAlignment = VerticalAlignment.Bottom;
             SignaturePad.Margin = new Thickness(0, 0, 0, 1);
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //SignaturePad.
+            var pngImageStream = SignaturePad.GetImage(ImageFormatType.Png);
+            var pngImage = ImageFromStream(pngImageStream);
+
+            
+            Image.Source = pngImage;
+
+
+        }
+
+        public static BitmapImage ImageFromStream(Stream stream)
+        {
+            var memStream = new MemoryStream();
+            stream.CopyTo(memStream);
+            memStream.Position = 0;
+            var bitmap = new BitmapImage();
+            bitmap.SetSource(memStream.AsRandomAccessStream());
+            return bitmap;
         }
     }
 }
